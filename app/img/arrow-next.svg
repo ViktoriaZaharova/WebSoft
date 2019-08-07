@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 11 16"><defs><path id="a" d="M2.5 0L0 2.5 5.5 8 0 13.5 2.5 16l8-8z"/></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"/></clipPath><path clip-path="url(#b)" fill="#fff" d="M-5-5h20.5v26H-5z"/></svg>
