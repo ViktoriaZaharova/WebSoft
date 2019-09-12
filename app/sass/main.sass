@@ -114,6 +114,7 @@ input, select, textarea
   justify-content: center
   width: 100%
   flex-direction: column
+  overflow: hidden
   p
     margin: 0 auto 10px
     font-size: 20px
@@ -208,14 +209,15 @@ h2
   padding: 50px 0
   width: 100%
   position: relative
-  &:before
-    content: ''
-    position: absolute
-    height: 100%
-    left: 35px
-    top: 0
-    width: 1px
-    background: rgba($bg, .5)
+  overflow: hidden
+
+.section-line
+  position: absolute
+  height: 100%
+  left: 35px
+  top: 0
+  width: 1px
+  background: rgba($bg, .5)
 
 .logo
   font-family: 'poiret', sans-serif
@@ -223,6 +225,7 @@ h2
   color: #fff
   position: relative
   padding: 0 55px 0 40px
+  overflow: hidden
   &:before, &:after
     content: ''
     position: absolute
@@ -296,6 +299,7 @@ h2
   display: flex
   justify-content: space-between
 
+
 .main-left
   width: 50%
   height: 100vh
@@ -312,12 +316,14 @@ h2
   position: relative
   align-items: center
   justify-content: flex-start
+  overflow: hidden
 
 .portfolio-right-slider
   width: 100%
   height: 100%
   padding: 10% 4%
   color: #fff
+  background: #474A5E
 
 .portfolio-box-description
   color: #fff
@@ -334,6 +340,7 @@ h2
     color: $accent
     position: relative
     padding-bottom: 10px
+    overflow: hidden
     &:before
       content: ''
       position: absolute
@@ -380,6 +387,7 @@ h2
   flex-direction: column
   background: $accent2
 
+
 .portfolio-right-slider-bottom
   width: 100%
   height: 5vw
@@ -408,14 +416,23 @@ h2
   align-items: center
   flex-wrap: wrap
 
+.first-right-overlay
+  background: rgba(255,255,255,0.4)
+  position: absolute
+  left: 0
+  bottom: 0
+  width: 0
+  height: 100%
 
 .main-right
   height: 100vh
   width: 50%
   overflow: hidden
+  position: relative
 
 .main-left-slider, .portfolio-left-slider
   width: 100%
+
 
 .main-block
   position: absolute
@@ -587,6 +604,7 @@ h2
   display: flex
   justify-content: space-between
   background: $accent2
+  position: relative
 
 .down-left, .down-right
   width: 50%
@@ -607,6 +625,7 @@ h2
 .main-left-text, .main-left-description
   color: $bg
   padding: 3px 0
+  //overflow: hidden
 
 .down-right-item
   .icon
@@ -1008,6 +1027,14 @@ svg
   justify-content: space-between
   flex-wrap: wrap
 
+.gallery-item-overlay
+  background: $accent2
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: 2
 
 .about-box
   display: flex
@@ -1018,6 +1045,8 @@ svg
   margin: 0 auto 30px
   max-width: 30%
   width: 100%
+  position: relative
+  overflow: hidden
   //&:last-child
   //  margin: 0
   .photo
@@ -1029,6 +1058,7 @@ svg
     display: flex
     align-items: center
     justify-content: center
+
     .img
       width: 100%
       height: 100%
@@ -1038,6 +1068,7 @@ svg
       display: flex
       align-items: center
       justify-content: center
+      transform-origin: 50% 50%
     &:before, &:after
       content: ''
       position: absolute
@@ -1112,7 +1143,6 @@ footer
 
 
 .copyright
-  text-align: center
   width: 100%
   font-size: 12px
   color: #ccc
@@ -1120,6 +1150,55 @@ footer
   border-top: 1px solid rgba($border, .3)
   margin: 10px 0 0 0
 
+
+.preloader
+  position: fixed
+  z-index: 10
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  background: $button
+  display: flex
+  align-items: center
+  justify-content: center
+  opacity: 1
+  transition: opacity 1s linear
+
+
+.line-preloader
+  width: 100%
+  height: 2px
+  background: $accent
+  position: absolute
+
+  &:first-child
+    top: 50px
+    left: 0
+  &:last-child
+    bottom: 50px
+    right: 0
+
+.preloader-logo
+  color: #fff
+  display: flex
+  align-items: center
+  justify-content: center
+  overflow: hidden
+
+.preloader-tag
+  width: 30px
+  height: 30px
+  display: flex
+  align-items: center
+  justify-content: center
+  svg
+    fill: $accent
+
+.preloader-logo__text
+  font-size: 60px
+  font-family: 'poiret', sans-serif
+  margin: 0 12px 0 10px
 
 
 @import "modal"

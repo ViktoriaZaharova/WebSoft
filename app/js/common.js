@@ -145,28 +145,10 @@ $(document).ready(function() {
 
 
     //Меню на мобильном
-    // var $body = $(window.document.body);
-    // function bodyFreezeScroll() {
-    //     $body.css({'overflow': 'hidden', 'position': 'relative'});
-    // }
-    //
-    // function bodyUnfreezeScroll() {
-    //     $body.css({'overflow': 'auto', 'position': 'relative'});
-    // }
-
     $('.menu-btn').click(function(){
         $(this).toggleClass('active');
         $('.menu-list').toggleClass('active');
         $('.menu-overlay').toggleClass('active');
-        // if($(window).width() < 993) {
-        //     if($(this).hasClass('active')){
-        //         bodyUnfreezeScroll();
-        //     }
-        //     else {
-        //         bodyFreezeScroll();
-        //     }
-        // }
-
     });
 
     // tabs
@@ -254,21 +236,6 @@ $(document).ready(function() {
 
 });
 
-// animate print text
-// $(document).ready(function(){
-//     $.fn.animate_Text = function() {
-//         var string = this.text();
-//         return this.each(function(){
-//             var $this = $(this);
-//             $this.html(string.replace(/./g, '<span class="new_zakaz">$&</span>'));
-//             $this.find('span.new_zakaz').each(function(i, el){
-//                 setTimeout(function(){ $(el).addClass('div_opacity_zakaz'); }, 100 * i);
-//             });
-//         });
-//     };
-//     $('.price-box__wrapper > .landing-bubble').show();
-//     $('.price-box__wrapper > .landing-bubble').animate_Text();
-// });
 
 function myForm() {
     const
@@ -318,18 +285,311 @@ function myForm() {
 
     setTimeout(function () {
         document.body.classList.add('document-loaded');
-    }, 1800);
+    }, 1000);
 }
 
 $(document).ready(function() {
     var animationStared = false;
 
     $(window).scroll(function () {
-
         if (animationStared) return;
         if ($(window).scrollTop() + $(window).height() > $('#callback-section').height() + $('#callback-section').offset().top) {
             myForm();
             animationStared = true
         }
     });
+
 });
+
+//Анимации
+$(document).ready(function () {
+
+    function gsapTop() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapTop').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).height();
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {y: +position},
+                {y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapTop2() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapTop2').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).height();
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {y: -position},
+                {y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapWidth() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapWidth').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 1;
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {width: 0},
+                {width: "100%", ease: Power4.easeOut, delay: animationDelay}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapHeight() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapHeight').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 3;
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {height: 0},
+                {height: "100%", ease: Power4.easeOut, delay: animationDelay}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+    function gsapFade() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapFade').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 4;
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0},
+                {opacity: 1, ease: Power4.easeOut, delay: animationDelay}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapFadeTop() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onCenter", offset: "-66"}});
+
+        $('.gsapFadeTop').each(function() {
+            var animationDelay = $(this).data("delay") || 0.5;
+            var animationDuration = $(this).data("duration") || 1.5;
+            var position = $(this).data("height") || $(this).height();
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0, y: position},
+                {opacity: 1, y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+    function gsapFadeTop2() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapFadeTop2').each(function() {
+            var animationDelay = $(this).data("delay") || 0.5;
+            var animationDuration = $(this).data("duration") || 1;
+            var position = $(this).data("height") || $(this).height();
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0, y: position},
+                {opacity: 1, y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+    function gsapFadeLeft() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onCenter", offset: "-66"}});
+
+        $('.gsapFadeLeft').each(function() {
+            var animationDelay = $(this).data("delay") || 0.5;
+            var animationDuration = $(this).data("duration") || 2;
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0, x: -100},
+                {opacity: 1, x: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+    function gsapCard() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapCard').each(function() {
+            var animationDelay = $(this).data("delay") || 0.5;
+            var animationDuration = $(this).data("duration") || 1;
+            var position = $(this).data("height") || $(this).height();
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {opacity: 0, y: position,  width: '80%'},
+                {opacity: 1, y: 0, width: "100%", ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+
+    function gsapFadeInRight() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapFadeInRight').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).width();
+
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {x: +position},
+                {x: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapFadeInLeft() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapFadeInLeft').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).width();
+
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {x: -position, opacity: 0},
+                {x: 0, opacity: 1, ease: Power4.easeOut, delay: animationDelay}, '=-1'
+            );
+            var trigg = this;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapUp() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onCenter", offset: "-66"}});
+
+        $('.gsapUp').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.1;
+            var position = $(this).height() * 2;
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {y: position},
+                {y: 0, ease: Power4.ease, delay: animationDelay, force3D:true}
+            );
+            var trigg = this.parentNode;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+    function gsapSlideGo() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapSlideGo').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {scale: 0.8, opacity: 0},
+                {scale: 1, opacity: 1, ease: Power4.ease, delay: animationDelay, force3D:true}
+            );
+            var trigg = this.parentNode;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapSlideGallery() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapSlideGallery').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).width();
+
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {x: 0},
+                {x: "-100%", ease: Power4.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this.parentNode;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+    function gsapSlideGraf() {
+        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
+
+        $('.gsapSlideGraf').each(function() {
+            var animationDelay = $(this).data("delay") || 1;
+            var animationDuration = $(this).data("duration") || 0.5;
+            var position = $(this).width();
+
+            var tween = TweenMax.fromTo(this, animationDuration,
+                {x: 0},
+                {x: "100%", ease: Power0.easeOut, delay: animationDelay, force3D:true}
+            );
+            var trigg = this.parentNode;
+            new ScrollMagic.Scene({triggerElement: trigg})
+                .setTween(tween)
+                .addTo(controller);
+        })
+    }
+
+    if ($(window).width() > 480) {
+        gsapTop();
+        gsapFade();
+        gsapFadeTop();
+        gsapFadeTop2();
+        gsapCard();
+        gsapFadeInRight();
+        gsapFadeLeft();
+        gsapTop2();
+        gsapWidth();
+        gsapHeight();
+        gsapFadeInLeft();
+        gsapUp();
+        gsapSlideGo();
+        gsapSlideGallery();
+        gsapSlideGraf();
+    }
+
+});
+
+$(window).on('load', function(){
+    $('.preloader').delay(3300).fadeOut(700);
+});
+
+
+
+
