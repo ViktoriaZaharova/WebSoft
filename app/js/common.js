@@ -51,16 +51,25 @@ $(document).ready(function() {
        slidesToShow: 1,
        speed: 1000,
        dots: false,
-       prevArrow: '<div class="main-arrow-prev"></div>',
-       nextArrow: '<div class="main-arrow-next"></div>',
+       arrows: false,
        fade: true,
        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
        touchThreshold: 100
    });
 
-    var time = 5, // времья перелистывания слайдов главного слайдера
+    // slider arrows my-style
+    $('.price-slider__arrow .main-arrow-next').on('click', function () {
+        $('.price-slider').slick('slickNext');
+    });
+
+
+    $('.price-slider__arrow .main-arrow-prev').on('click', function () {
+        $('.price-slider').slick('slickPrev');
+    });
+    // slider arrows my-style
+
+    var time = 5, // время перелистывания слайдов главного слайдера
         bar,
-        // $slick,
         tick,
         isPause,
         percentTime,
@@ -119,10 +128,8 @@ $(document).ready(function() {
 
     $('.portfolio__slider2').slick({
             slidesToShow: 1,
-            // vertical: true,
             speed: 1000,
             arrows: false,
-            // verticalSwiping: true,
             cssEase: 'ease-in-out',
             asNavFor: ".portfolio-slider"
         });
@@ -138,19 +145,27 @@ $(document).ready(function() {
 
 
     //Меню на мобильном
+    // var $body = $(window.document.body);
+    // function bodyFreezeScroll() {
+    //     $body.css({'overflow': 'hidden', 'position': 'relative'});
+    // }
+    //
+    // function bodyUnfreezeScroll() {
+    //     $body.css({'overflow': 'auto', 'position': 'relative'});
+    // }
 
     $('.menu-btn').click(function(){
         $(this).toggleClass('active');
         $('.menu-list').toggleClass('active');
         $('.menu-overlay').toggleClass('active');
-        if($(window).width() < 993) {
-            if($(this).hasClass('active')){
-                bodyUnfreezeScroll();
-            }
-            else {
-                bodyFreezeScroll();
-            }
-        }
+        // if($(window).width() < 993) {
+        //     if($(this).hasClass('active')){
+        //         bodyUnfreezeScroll();
+        //     }
+        //     else {
+        //         bodyFreezeScroll();
+        //     }
+        // }
 
     });
 
@@ -170,6 +185,55 @@ $(document).ready(function() {
     }
 
 
+    //плавный скролл
+    $(document).ready(function () {
+        $('.menu-item-link').click(function () {
+            var scroll_el = $(this).attr('href');
+            if ($(scroll_el).length != 0) {
+                $('html, body').animate({
+                    scrollTop: $(scroll_el).offset().top
+                }, 500);
+            }
+            return false;
+        });
+    });
+    //плавный скролл end
+
+    // модальные окна (несколько)
+    $(document).ready(function () {
+        var overlay = $('.overlay');
+        var open_modal = $('.open_modal');
+        var close = $('.modal__close, .overlay');
+        var modal = $('.modal__div');
+
+        open_modal.click(function (event) {
+            event.preventDefault();
+            var div = $(this).attr('href');
+            overlay.fadeIn(400,
+                function () {
+                    $(div)
+                        .css('display', 'flex')
+                        .animate({
+                            opacity: 1,
+                            top: '50%'
+                        }, 200);
+                });
+        });
+
+        close.click(function () {
+            modal
+                .animate({
+                        opacity: 0,
+                        top: '45%'
+                    }, 200,
+                    function () {
+                        $(this).css('display', 'none');
+                        overlay.fadeOut(400);
+                    }
+                );
+        });
+    });
+    //end
 
 
 

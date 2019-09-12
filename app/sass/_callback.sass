@@ -64,7 +64,7 @@
     content: ''
     position: absolute
     left: 32.9%
-    top: -9.5%
+    top: 1.5%
     background: $button
     z-index: -4
     border-radius: 50%
@@ -74,7 +74,7 @@
     content: ''
     position: absolute
     left: 32.9%
-    top: -9.5%
+    top: 1.5%
     height: 400px
     width: 400px
     background: white
@@ -469,3 +469,39 @@ body
     stroke-dasharray: 125, 200
     opacity: 1
 
+.upload-container
+  position: relative
+  border: 1px solid rgba(255, 255, 255, 0.2)
+    radius: 3px
+  margin-bottom: 25px
+  transition: .3s ease
+  &:hover
+    border-color: rgba(255, 255, 255, 0.4)
+  label
+    width: 100%
+    z-index: 10
+    color: white
+    text-transform: uppercase
+    text-shadow: 0 0 5px
+    padding: 10px
+    cursor: pointer
+    display: flex
+    align-items: center
+
+  .image
+    width: 30px
+    height: 30px
+    display: inline-block
+    margin: 0 10px 0 0
+    svg
+      width: 100%
+      height: 100%
+      display: inline-block
+      fill: rgba(255, 255, 255, 0.35)
+
+input[type='file']
+  width: 0.1px
+  height: 0.1px
+  opacity: 0
+  position: absolute
+  z-index: -10

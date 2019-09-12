@@ -4,52 +4,455 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px)
-	/**/
+  .main-left
+    padding-left: 4%
+
+  .main-block-line
+    width: 90px
+    margin: 0 25px
+
+  .third-arrows
+    width: 70px
+
+  .main-block
+    height: 100px
 
 
 /* Medium Devices, Desktops */
+@media only screen and (max-width : 1040px)
+  .btn-accent
+    letter-spacing: 2px
+    line-height: 40px
+    font-size: 16px
+
+  .main-block-line
+    margin: 0 10px
+
 @media only screen and (max-width : 992px)
-	/**/
+  .menu-overlay
+    background: #000
+    display: block
+    position: fixed
+    width: 100%
+    height: 100%
+    overflow: auto
+    top: 0
+    left: 0
+    content: ''
+    opacity: 0
+    pointer-events: none
+    transition: opacity .5s ease
+
+  .menu-overlay.active
+    pointer-events: auto
+    opacity: 1
+
+  .menu-list.active
+    transform: translateX(100%)
+
+  .menu-list
+    position: fixed
+    top: 0
+    right: 0
+    width: 440px
+    height: 200vh
+    padding: 45px 60px
+    background: #fff
+    flex-direction: column
+    align-items: flex-start
+    z-index: 1
+    transform: translateX(0)
+    transition: transform .5s ease
+    pointer-events: auto
+
+  .menu-item
+    margin-bottom: 30px
+
+  .menu-item-link
+    color: $button
+    margin: 0
+
+  .menu-btn
+    z-index: 2
+    .menu-line_bottom
+      bottom: 6px
+      transform: rotate(-45deg)
+    .menu-line_top
+      top: 6px
+      transform: rotate(45deg)
 
 
-/* Small Devices, Tablets */
+  .menu-btn.active
+    .menu-line_bottom
+      transform: none
+      bottom: 0
+      background: $accent
+    .menu-line_top
+      transform: none
+      top: 0
+      background: $accent
+    &:hover
+      .menu-line_bottom, .menu-line_top
+        transform: rotate(0)
+
+  .menu-line, .menu-btn:hover .menu-line
+    background: $button
+
+  .main-block-flex
+    padding: 0 20px
+
+  .main-left-title
+    font-size: 50px
+    margin: 15px 0
+    max-width: 365px
+
+  .main-block-line
+    width: 70px
+
+  .third-arrows
+    width: 60px
+
+  .about-box
+    flex-direction: row
+    align-items: center
+    width: 100%
+    max-width: none
+    padding: 0 0 0 35px
+    .text
+      width: calc(100% - 120px)
+      margin: 0
+    .photo
+      width: 120px
+      height: 170px
+
+  .tabs-services
+    padding: 0 0 0 30px
+    box-sizing: border-box
+
+  .portfolio-box-description
+    .text
+      font-size: 14px
+      p
+        margin: 0 0 5px
+    .slider-title
+      font-size: 20px
+      margin: 0 auto 15px
+
+  .portfolio-right-slider
+    padding: 30px 20px
+
+  .portfolio-right-slider-bottom
+    .slide
+      font-size: 16px
+      p
+        font-size: 16px
+        line-height: 20px
+
+  .portfolio-arrows
+    .third-arrow
+      width: 45px
+      min-width: 45px
+      height: 40px
+      &:before
+        -webkit-background-size: 15px 10px
+        background-size: 15px 10px
+
+    .slick-prev
+      right: 45px
+
+  footer .box-contacts li a
+    font-size: 12px
+
+@media only screen and (max-width : 897px)
+  footer
+    .logo
+      order: -1
+      font-size: 30px
+      padding: 0 30px 0 25px
+      &:before
+        font-size: 22px
+      &:after
+        font-size: 17px
+    .box-contacts
+      margin: 0 0 0 auto
+
+  .styled-input__placeholder-text, .upload-container label
+    font-size: 14px
+
 @media only screen and (max-width : 768px)
-	/**/
+  h2
+    font-size: 30px
+    padding: 0 0 5px
+    &:before
+      height: 3px
+
+  .box-title p
+    font-size: 18px
+
+  .fixed-text
+    font-size: 16px
+    left: 12px
+
+  .section:before
+    left: 24px
+
+  .ui .text
+    font-size: 3rem
+    line-height: 3rem
+
+  .price-box
+    margin: 0 30px 0 0
+    font-size: 16px
+    h3
+      font-size: 20px
+    .price
+      padding: 15px 10px
+
+  .list-price li
+    font-size: 14px
+
+  .price-box__wrapper .text
+    font-size: 16px
+    strong
+      font-size: 18px
+
+  .form
+    margin: 30px 0 20px
 
 
 /* Extra Small Devices, Phones */
+@media only screen and (max-width : 690px)
+  .main-left
+    width: 100%
+    height: auto
+    position: initial
+    padding: 0
+    justify-content: center
+    text-align: center
+
+  .main-right
+    width: 100%
+    height: auto
+
+  .main-flex
+    position: relative
+    flex-wrap: wrap
+    padding: 0 0 100px 0
+
+  .main-block
+    bottom: 0
+    left: 0
+    z-index: 2
+
+  .main-block-flex
+    flex-direction: column
+    justify-content: space-around
+
+  .main-right-slider
+    height: calc(100vh - 40vw)
+
+  .btn-accent
+    line-height: 30px
+
+  .down
+    background: $bg2
+    height: 25vw
+
+  .down-right-item .icon
+    height: 25vw
+
+  .main-left-title
+    font-size: 30px
+    max-width: none
+    width: 100%
+    margin: 5px 0
+
+  .main-left-slider
+    padding: 100px 0 30px 0
+
+  .about-box .text blockquote
+    font-size: 12px
+
+  .tabs__caption li
+    width: 200px
+    h3
+      font-size: 12px
+
+  .portfolio-box-description .text
+    font-size: 12px
+
+  .portfolio-right-slider-bottom .slide
+    h5
+      font-size: 12px
+    p
+      font-size: 14px
+      line-height: 16px
+
+  .portfolio-right, .portfolio-left
+    height: 60vw
+
+  .portfolio-right-slider
+    padding: 25px 15px
+
+  .portfolio-right-slider-bottom
+    height: 7.7vw
+
+@media only screen and (max-width : 560px)
+  .about-box
+    flex-direction: column
+    align-items: center
+    padding: 0 0 0 22px
+    .text
+      width: 100%
+      margin: 30px auto 0
+      padding: 0
+      .name
+        font-size: 18px
+      blockquote
+        margin: 10px 0
+      .position
+        font-size: 12px
+        padding: 5px 0
+    .photo
+      width: 100px
+      height: 150px
+      &:after
+        bottom: 10px
+        left: 10px
+      &:before
+        top: 6px
+        left: 6px
+
+  .portfolio-right, .portfolio-left
+    width: 100%
+
+  .portfolio-right
+    height: auto
+
+  .portfolio-left
+    height: 50vw
+
+  .portfolio-flex
+    flex-wrap: wrap
+    width: 100%
+
+
+  #portfolio .portfolio-flex
+    margin: 30px 0 0 0
+
+  .portfolio-right-slider-bottom
+    height: 45px
+
+  .price-box__wrapper
+    flex-wrap: wrap
+    .text
+      width: 100%
+      margin: 30px 0 0
+      max-width: none
+
+  .price-box
+    margin: 0
+    width: 100%
+    h3
+      padding: 12px 5px
+
+  .list-price li
+    padding: 10px 5px
+
+@media only screen and (max-width : 520px)
+  .tabs__content
+    width: 100%
+    padding: 0
+
+  .tabs-services
+    flex-direction: column
+    align-items: center
+
+  .tabs__caption
+    flex-direction: row
+    flex-wrap: wrap
+    width: 100%
+    margin: 0 auto 30px
+    li
+      width: 50%
+      flex: auto
+      &:before
+        top: auto
+        bottom: 0
+        width: 0
+        height: 3px
+    li.active
+      &:before
+        width: 100%
+        top: auto
+
+  .ui
+    .text
+      font-size: 2rem
+      line-height: 2rem
+
+  .form__content
+    width: 90%
+
+  .styled-button
+    padding: 15px
+
 @media only screen and (max-width : 480px)
-	/**/
+  .logo
+    font-size: 30px
+    padding: 0 40px 0 27px
+    &:before
+      font-size: 30px
+    &:after
+      font-size: 25px
+
+  .box-contacts li a
+    font-size: 12px
+
+  .menu-btn
+    margin-left: 10px
+    width: 20px
+    height: 10px
+
+  .menu-list
+    width: 280px
+
+  .main-right-slider
+    height: calc(100vh - 80vw)
+
+  .section
+    padding: 30px 0
+
+  footer
+    .container
+      flex-direction: column
+      align-items: center
+    .box-contacts
+      margin: 5px auto
+      &:last-child
+        margin: 0 auto
 
 
 /* Custom, iPhone Retina */
-@media only screen and (max-width : 320px)
-	/**/
+@media only screen and (max-width : 420px)
+  .logo
+    font-size: 22px
+    padding: 0 24px 0 16px
+    &:before
+      font-size: 16px
+    &:after
+      font-size: 14px
+
+  .menu-btn .menu-line_bottom
+    bottom: 4px
+
+  .menu-btn .menu-line_top
+    top: 4px
 
 
-/*==========  Mobile First  ==========*/
+@media only screen and (max-width : 380px)
+  footer .box-contacts li a
+    font-size: 10px
+    padding: 0 4px
 
-/* Custom, iPhone Retina */
-@media only screen and (min-width : 320px)
-	/**/
-
-
-/* Extra Small Devices, Phones */
-@media only screen and (min-width : 480px)
-	/**/
-
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px)
-	/**/
-
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px)
-	/**/
-
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px)
-	/**/
 
