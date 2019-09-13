@@ -304,40 +304,6 @@ $(document).ready(function() {
 //Анимации
 $(document).ready(function () {
 
-    function gsapTop() {
-        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
-
-        $('.gsapTop').each(function() {
-            var animationDelay = $(this).data("delay") || 1;
-            var animationDuration = $(this).data("duration") || 0.5;
-            var position = $(this).height();
-            var tween = TweenMax.fromTo(this, animationDuration,
-                {y: +position},
-                {y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
-            );
-            var trigg = this;
-            new ScrollMagic.Scene({triggerElement: trigg})
-                .setTween(tween)
-                .addTo(controller);
-        })
-    }
-    function gsapTop2() {
-        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
-
-        $('.gsapTop2').each(function() {
-            var animationDelay = $(this).data("delay") || 1;
-            var animationDuration = $(this).data("duration") || 0.5;
-            var position = $(this).height();
-            var tween = TweenMax.fromTo(this, animationDuration,
-                {y: -position},
-                {y: 0, ease: Power4.easeOut, delay: animationDelay, force3D:true}
-            );
-            var trigg = this;
-            new ScrollMagic.Scene({triggerElement: trigg})
-                .setTween(tween)
-                .addTo(controller);
-        })
-    }
     function gsapWidth() {
         var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
 
@@ -440,25 +406,6 @@ $(document).ready(function () {
         })
     }
 
-    function gsapCard() {
-        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
-
-        $('.gsapCard').each(function() {
-            var animationDelay = $(this).data("delay") || 0.5;
-            var animationDuration = $(this).data("duration") || 1;
-            var position = $(this).data("height") || $(this).height();
-            var tween = TweenMax.fromTo(this, animationDuration,
-                {opacity: 0, y: position,  width: '80%'},
-                {opacity: 1, y: 0, width: "100%", ease: Power4.easeOut, delay: animationDelay, force3D:true}
-            );
-            var trigg = this;
-            new ScrollMagic.Scene({triggerElement: trigg})
-                .setTween(tween)
-                .addTo(controller);
-        })
-    }
-
-
     function gsapFadeInRight() {
         var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
 
@@ -490,23 +437,6 @@ $(document).ready(function () {
                 {x: 0, opacity: 1, ease: Power4.easeOut, delay: animationDelay}, '=-1'
             );
             var trigg = this;
-            new ScrollMagic.Scene({triggerElement: trigg})
-                .setTween(tween)
-                .addTo(controller);
-        })
-    }
-    function gsapUp() {
-        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onCenter", offset: "-66"}});
-
-        $('.gsapUp').each(function() {
-            var animationDelay = $(this).data("delay") || 1;
-            var animationDuration = $(this).data("duration") || 0.1;
-            var position = $(this).height() * 2;
-            var tween = TweenMax.fromTo(this, animationDuration,
-                {y: position},
-                {y: 0, ease: Power4.ease, delay: animationDelay, force3D:true}
-            );
-            var trigg = this.parentNode;
             new ScrollMagic.Scene({triggerElement: trigg})
                 .setTween(tween)
                 .addTo(controller);
@@ -547,41 +477,19 @@ $(document).ready(function () {
                 .addTo(controller);
         })
     }
-    function gsapSlideGraf() {
-        var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", offset: "-66"}});
 
-        $('.gsapSlideGraf').each(function() {
-            var animationDelay = $(this).data("delay") || 1;
-            var animationDuration = $(this).data("duration") || 0.5;
-            var position = $(this).width();
-
-            var tween = TweenMax.fromTo(this, animationDuration,
-                {x: 0},
-                {x: "100%", ease: Power0.easeOut, delay: animationDelay, force3D:true}
-            );
-            var trigg = this.parentNode;
-            new ScrollMagic.Scene({triggerElement: trigg})
-                .setTween(tween)
-                .addTo(controller);
-        })
-    }
 
     if ($(window).width() > 480) {
-        gsapTop();
         gsapFade();
         gsapFadeTop();
         gsapFadeTop2();
-        gsapCard();
         gsapFadeInRight();
         gsapFadeLeft();
-        gsapTop2();
         gsapWidth();
         gsapHeight();
         gsapFadeInLeft();
-        gsapUp();
         gsapSlideGo();
         gsapSlideGallery();
-        gsapSlideGraf();
     }
 
 });
